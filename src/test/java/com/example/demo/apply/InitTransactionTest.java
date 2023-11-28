@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.apply;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
