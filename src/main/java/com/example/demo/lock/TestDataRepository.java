@@ -14,4 +14,6 @@ public interface TestDataRepository extends JpaRepository<TestData,Long> {
     @Lock(LockModeType.PESSIMISTIC_READ)
     TestData findByName(String name);
 
+    TestData deleteByName(String name);
+
 }

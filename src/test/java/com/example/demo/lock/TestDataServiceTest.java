@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -47,7 +48,11 @@ class TestDataServiceTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        testDataService.testMethod2();
+//        testDataService.testMethod2();
+        testDataService.delete(1L);
+
+        Optional<TestData> byId = testDataRepository.findById(1L);
+        log.info("제거시간됏냐? = {}",byId.isEmpty());
 
         log.info("최종시간 = {}", LocalDateTime.now());
         try {
