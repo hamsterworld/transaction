@@ -1,4 +1,4 @@
-package com.example.demo.member;
+package com.example.demo.isolation;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,14 +11,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Member {
+public class IsolationTestData {
+
     @Id
     @GeneratedValue
-    private Long id;
-    private String username;
-    public Member() {
-    }
-    public Member(String username) {
-        this.username = username;
-    }
+    private long id;
+
+    private String name;
+
 }

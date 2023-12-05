@@ -27,7 +27,7 @@ public class MemberService {
     }
 
 //    @Transactional
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional
     public void joinV2(String username) {
         Member member = new Member(username);
         Log logMessage = new Log(username);
@@ -35,12 +35,12 @@ public class MemberService {
         memberRepository.save(member);
         log.info("== memberRepository 호출 종료 ==");
         log.info("== logRepository 호출 시작 ==");
-        try {
+//        try {
             logRepository.save(logMessage);
-        } catch (RuntimeException e) {
-            log.info("log 저장에 실패했습니다. logMessage={}", logMessage.getMessage());
-            log.info("정상 흐름 변환");
-        }
+//        } catch (RuntimeException e) {
+//            log.info("log 저장에 실패했습니다. logMessage={}", logMessage.getMessage());
+//            log.info("정상 흐름 변환");
+//        }
         log.info("== logRepository 호출 종료 ==");
     }
 

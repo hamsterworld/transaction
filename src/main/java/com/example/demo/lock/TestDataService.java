@@ -59,5 +59,10 @@ public class TestDataService {
         log.info("delete end");
     }
 
+    @Transactional
+    public void test1(){
+        
+    }
+
 
 }

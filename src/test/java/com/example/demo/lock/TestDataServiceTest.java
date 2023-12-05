@@ -39,7 +39,8 @@ class TestDataServiceTest {
         testDataService.save(testData2);
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
-
+        Optional<TestData> byId = testDataRepository.findById(1L);
+        log.info("제거시간됏냐? = {}",byId.isEmpty());
         for(int i =0; i<1; i++){
             executorService.submit(()-> testDataService.testMethod1());
         }
@@ -51,8 +52,8 @@ class TestDataServiceTest {
 //        testDataService.testMethod2();
         testDataService.delete(1L);
 
-        Optional<TestData> byId = testDataRepository.findById(1L);
-        log.info("제거시간됏냐? = {}",byId.isEmpty());
+//        Optional<TestData> byId = testDataRepository.findById(1L);
+//        log.info("제거시간됏냐? = {}",byId.isEmpty());
 
         log.info("최종시간 = {}", LocalDateTime.now());
         try {
